@@ -34,3 +34,6 @@ build/
 
 ### ENV File ###
 .env
+
+### Front End ###
+.DS_Store

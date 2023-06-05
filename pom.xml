@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>2.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>jp.insaaf</groupId>
     <artifactId>fintech</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Insaaf Fintech</name>
     <description>Insaaf Fintech</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
@@ -74,6 +74,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <configuration>
+                        <executable>true</executable>
+                    </configuration>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
