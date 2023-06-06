@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="/fragments/common/header :: head"></head>
+<head th:replace="fragments/common/header :: head"></head>
 
 <body class="g-sidenav-show   bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
-<aside th:replace="/fragments/common/sidebar :: sidebar"></aside>
+<aside th:replace="fragments/common/sidebar :: sidebar"></aside>
 
 <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
@@ -323,7 +323,7 @@
                                 <td class="w-30">
                                     <div class="d-flex px-2 py-1 align-items-center">
                                         <div>
-                                            <img th:src="@{/img/icons/flags/US.png}" alt="Country flag">
+                                            <img th:src="@{/img/icons/flags/us.png}" alt="Country flag">
                                         </div>
                                         <div class="ms-4">
                                             <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -354,7 +354,7 @@
                                 <td class="w-30">
                                     <div class="d-flex px-2 py-1 align-items-center">
                                         <div>
-                                            <img th:src="@{/img/icons/flags/BD.png}" alt="Country flag">
+                                            <img th:src="@{/img/icons/flags/bd.png}" alt="Country flag">
                                         </div>
                                         <div class="ms-4">
                                             <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -507,7 +507,7 @@
                 </div>
             </div>
         </div>
-        <foote th:replace="/fragments/common/footer :: footer"></foote>
+        <foote th:replace="fragments/common/footer :: footer"></foote>
     </div>
 </main>
 
