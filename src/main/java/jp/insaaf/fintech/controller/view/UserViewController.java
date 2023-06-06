@@ -1,6 +1,5 @@
 package jp.insaaf.fintech.controller.view;
 
-import jp.insaaf.fintech.data.entity.User;
 import jp.insaaf.fintech.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +19,11 @@ public class UserViewController {
     public String viewAllUsers(Model model){
         model.addAttribute("users", userService.getAllUsers());
         return "users";
+    }
+
+    @GetMapping("/get-all-members")
+    public String getAllUsers(Model model){
+        return "pages/members";
     }
 
 }
