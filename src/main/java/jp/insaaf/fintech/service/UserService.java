@@ -22,8 +22,19 @@ public class UserService {
         return userRepository.findUserByEmail(email);
     }
 
-    public User addUser(User user) {
-        return userRepository.insert(user);
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 
+    public List<User> createUsers(List<User> users) {
+        return userRepository.saveAll(users);
+    }
+
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public void deleteUserById(String id) {
+        userRepository.deleteById(id);
+    }
 }

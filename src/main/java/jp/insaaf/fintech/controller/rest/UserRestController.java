@@ -18,18 +18,36 @@ public class UserRestController {
     private UserService userService;
 
     @PostMapping()
-    public ResponseEntity<User> addUser(@RequestBody User user){
-        return new ResponseEntity<>(userService.addUser(user), HttpStatus.OK);
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<User>> allUsers(){
+    @PostMapping("/all")
+    public ResponseEntity<List<User>> createUser(@RequestBody List<User> users){
+        return new ResponseEntity<>(userService.createUsers(users), HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getAllUsers(){
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<User>> getUser(@PathVariable String id){
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable String id){
         return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable("id") String id, @RequestBody User user) {
+        user.setId(id);
+        User updatedUser = userService.updateUser(user);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") String id) {
+        userService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
