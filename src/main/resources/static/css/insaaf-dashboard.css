@@ -83,6 +83,7 @@
 
 body {
   margin: 0;
+  height: 100vh;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -22527,10 +22528,11 @@ hr.horizontal.gray-light {
   bottom: 0;
   width: 100%;
   max-width: 15.625rem !important;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding: 0;
   box-shadow: none;
   z-index: 9999;
+  overflow: hidden;
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-collapse {
@@ -22625,7 +22627,7 @@ hr.horizontal.gray-light {
     bottom: 0;
     width: 100%;
     max-width: 15.625rem !important;
-    overflow-y: auto;
+    overflow-y: hidden;
     padding: 0;
     box-shadow: none;
     z-index: 9999;
@@ -22633,8 +22635,8 @@ hr.horizontal.gray-light {
 
   .navbar-vertical.navbar-expand-sm .navbar-collapse {
     display: block;
-    overflow: auto;
-    height: calc(100vh - 360px);
+    overflow: hidden;
+    height: calc(100vh - 150px);
   }
 
   .navbar-vertical.navbar-expand-sm>[class*="container"] {

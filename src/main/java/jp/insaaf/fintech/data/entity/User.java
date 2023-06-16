@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -23,13 +24,18 @@ public class User {
     private String firstName;
     private String lastName;
     private String fatherName;
-    private String jpAddress;
-    private String bdAddress;
     private String occupation;
-    private long dateOfBirth;
+    private String dateOfBirth;
+    private Long dateOfBirthInMillis;
+    @Transient
+    private Address jpAddress;
+    @Transient
+    private Address bdAddress;
     private boolean isActivated;
     private boolean isInvestmentEnabled;
     private boolean isDepositEnabled;
+    @Transient
+    private String comment;
     private String imageUrl;
 
     @CreatedDate
