@@ -142,9 +142,9 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <div class="d-flex">
-                            <h6><span th:text="${totalMembers}"></span> members from last 30 days</h6>
-                            <button>Hello</button>
+                        <div class="d-flex align-items-center">
+                                <h6><span th:text="${totalMembers}"></span> members from last 30 days</h6>
+                                <a class="ms-auto" th:href="@{/view/v1/user/add_member}"><button class="btn btn-primary btn-sm">Create New User</button></a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">

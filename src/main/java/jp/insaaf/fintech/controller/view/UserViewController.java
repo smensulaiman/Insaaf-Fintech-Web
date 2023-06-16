@@ -32,4 +32,10 @@ public class UserViewController {
         return "pages/members";
     }
 
+    @GetMapping("/add_member")
+    public String createMember(){
+
+        return "pages/add_member";
+    }
+
 }
