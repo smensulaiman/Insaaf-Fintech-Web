@@ -6,10 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpSession;
 import java.util.Random;
 
+@ApiIgnore
 @Controller
 public class AuthenticationController {
 
@@ -17,7 +19,7 @@ public class AuthenticationController {
     private String suraAyaatBn = "যারা সুদ খায়, তারা তার ন্যায় (কবর থেকে) উঠবে, যাকে শয়তান স্পর্শ করে পাগল বানিয়ে দেয়। এটা এ জন্য যে, তারা বলে, বেচা-কেনা সুদের মতই। অথচ আল্লাহ বেচা-কেনা হালাল করেছেন এবং সুদ হারাম করেছেন। অতএব, যার কাছে তার রবের পক্ষ থেকে উপদেশ আসার পর সে বিরত হল, যা গত হয়েছে তা তার জন্যই ইচ্ছাধীন। আর তার ব্যাপারটি আল্লাহর হাওলায়। আর যারা ফিরে গেল, তারা আগুনের অধিবাসী। তারা সেখানে স্থায়ী হবে। ";
 
     @GetMapping("/logout")
-    public String logout(@ModelAttribute("xxx") User user, HttpSession session) {
+    public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/";
     }

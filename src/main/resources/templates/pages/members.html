@@ -196,11 +196,15 @@
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">Bangladesh</p>
-                                        <p class="text-xs text-secondary mb-0" th:text="${member.getBdAddress()}"></p>
+                                        <p class="text-xs text-secondary mb-0" th:text="${member.getBdAddress().getStreet()
+                                        +', '+ member.getBdAddress().getDistrict() +', '+ member.getBdAddress().getPoliceStation()
+                                        +', '+ member.getBdAddress().getZip()}"></p>
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">Japan</p>
-                                        <p class="text-xs text-secondary mb-0" th:text="${member.getJpAddress()}"></p>
+                                        <p class="text-xs text-secondary mb-0" th:text="${member.getJpAddress().getStreet()
+                                        +', '+ member.getJpAddress().getPrefecture() +', '+ member.getJpAddress().getCity()
+                                        +', '+ member.getJpAddress().getZip()}"></p>
                                     </td>
                                     <td><p class="text-xs font-weight-bold mb-0" th:text="${member.getPhone()}"></p>
                                     </td>
@@ -323,6 +327,13 @@
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script th:src="@{/js/argon-dashboard.min.js(v=2.0.4)}"></script>
+
+<script>
+    const element = document.getElementById('dark-version');
+    darkMode(element);
+    element.setAttribute('checked', 'checked');
+</script>
+
 </body>
 
 </html>

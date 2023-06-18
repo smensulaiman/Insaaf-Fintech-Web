@@ -20,7 +20,8 @@ public class Address {
     private String street;
     private String prefecture;
     private String city;
-    private String area;
+    private String district;
+    private String policeStation;
     private String zip;
 
     @CreatedDate

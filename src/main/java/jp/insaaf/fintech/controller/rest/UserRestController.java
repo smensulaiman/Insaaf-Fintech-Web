@@ -17,23 +17,28 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestParam String email, @RequestParam String password) {
+        return userService.loginWithEmailAndPassword(email, password);
+    }
+
     @PostMapping()
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
 
     @PostMapping("/all")
-    public ResponseEntity<List<User>> createUser(@RequestBody List<User> users){
+    public ResponseEntity<List<User>> createUser(@RequestBody List<User> users) {
         return new ResponseEntity<>(userService.createUsers(users), HttpStatus.OK);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getAllUsers(){
+    public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable String id){
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable String id) {
         return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
     }
 
