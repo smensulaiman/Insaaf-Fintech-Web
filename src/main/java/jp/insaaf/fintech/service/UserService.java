@@ -1,7 +1,6 @@
 package jp.insaaf.fintech.service;
 
 import jp.insaaf.fintech.data.entity.User;
-import jp.insaaf.fintech.data.model.ResponseModel;
 import jp.insaaf.fintech.data.repository.AddressRepository;
 import jp.insaaf.fintech.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
