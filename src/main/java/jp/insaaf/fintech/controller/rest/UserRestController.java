@@ -19,11 +19,15 @@ public class UserRestController {
 
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestParam String email, @RequestParam String password) {
-        return userService.loginWithEmailAndPassword(email, password);
+        Optional<User> user = userService.loginWithEmailAndPassword(email, password);
+        if(user.isPresent() && user.get().getPassword().equals(password)){
+            return ResponseEntity.status(HttpStatus.OK).body(user.get());
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("bad credentials");
     }
 
-    @PostMapping()
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    @PostMapping("/register")
+    public ResponseEntity<Object> createUser(@RequestBody User user) {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
 
