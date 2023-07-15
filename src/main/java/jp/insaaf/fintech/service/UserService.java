@@ -45,11 +45,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public ResponseEntity<Object> loginWithEmailAndPassword(String email, String password) {
-        Optional<User> user = userRepository.findUserByEmail(email);
-        if(user.isPresent() && user.get().getPassword().equals(password)){
-            return ResponseEntity.status(HttpStatus.OK).body(user.get());
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("bad credentials");
+    public Optional<User> loginWithEmailAndPassword(String email, String password) {
+        return userRepository.findUserByEmail(email);
     }
 }
