@@ -15,7 +15,7 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-md-8">
-                <form action="" th:action="@{/view/v1/user/create-user}" method="post" th:object="${user}">
+                <form action="" th:action="@{/view/v1/user/create-user}" method="post" th:object="${user}" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
@@ -29,25 +29,25 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Firstname</label>
-                                        <input class="form-control" type="text" value="" th:field="*{firstName}">
+                                        <input class="form-control" type="text" value="" th:field="*{firstName}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Lastname</label>
-                                        <input class="form-control" type="text" value="" th:field="*{lastName}">
+                                        <input class="form-control" type="text" value="" th:field="*{lastName}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Email</label>
-                                        <input class="form-control" type="email" value="" th:field="*{email}">
+                                        <input class="form-control" type="email" value="" th:field="*{email}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Password</label>
-                                        <input class="form-control" type="password" value="" th:field="*{password}">
+                                        <input class="form-control" type="password" value="" th:field="*{password}" required>
                                     </div>
                                 </div>
                             </div>
@@ -64,13 +64,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Date Of Birth</label>
-                                        <input class="form-control" type="date" value="" th:field="*{dateOfBirth}">
+                                        <input class="form-control" type="date" value="" th:field="*{dateOfBirth}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Phone</label>
-                                        <input class="form-control" type="tel" value="" th:field="*{phone}">
+                                        <input class="form-control" type="tel" value="" th:field="*{phone}" required>
                                     </div>
                                 </div>
                             </div>
@@ -81,26 +81,26 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-control-label">Street/House</label>
-                                        <input class="form-control" type="text" value="" th:field="*{jpAddress.street}">
+                                        <input class="form-control" type="text" value="" th:field="*{jpAddress.street}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Prefecture</label>
                                         <input class="form-control" type="text" value=""
-                                               th:field="*{jpAddress.prefecture}">
+                                               th:field="*{jpAddress.prefecture}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">City</label>
-                                        <input class="form-control" type="text" value="" th:field="*{jpAddress.city}">
+                                        <input class="form-control" type="text" value="" th:field="*{jpAddress.city}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Postal code</label>
-                                        <input class="form-control" type="text" value="" th:field="*{jpAddress.zip}">
+                                        <input class="form-control" type="text" value="" th:field="*{jpAddress.zip}" required>
                                     </div>
                                 </div>
                             </div>
@@ -111,27 +111,27 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-control-label">Street/House</label>
-                                        <input class="form-control" type="text" value="" th:field="*{bdAddress.street}">
+                                        <input class="form-control" type="text" value="" th:field="*{bdAddress.street}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">District</label>
                                         <input class="form-control" type="text" value=""
-                                               th:field="*{bdAddress.district}">
+                                               th:field="*{bdAddress.district}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Police Station</label>
                                         <input class="form-control" type="text" value=""
-                                               th:field="*{bdAddress.policeStation}">
+                                               th:field="*{bdAddress.policeStation}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-control-label">Postal code</label>
-                                        <input class="form-control" type="text" value="" th:field="*{bdAddress.zip}">
+                                        <input class="form-control" type="text" value="" th:field="*{bdAddress.zip}" required>
                                     </div>
                                 </div>
                             </div>
@@ -154,8 +154,8 @@
                             <div class="row">
                                 <div class="file-upload">
                                     <div class="image-upload-wrap">
-                                        <input class="file-upload-input" type='file' onchange="readURL(this);"
-                                               accept="image/*"/>
+                                        <input class="file-upload-input" type='file' name="image" onchange="readURL(this);"
+                                               accept="image/png, image/jpeg"/>
                                         <div class="drag-text">
                                             <h4>Select or Drop an image to upload</h4>
                                         </div>
