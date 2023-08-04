@@ -3,21 +3,21 @@ package jp.insaaf.fintech.data.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Document("collection_user")
+@Entity
+@Table(name = "tbl_user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String email;
     private String password;
     private String phone;
@@ -25,22 +25,22 @@ public class User {
     private String lastName;
     private String fatherName;
     private String occupation;
-    private String dateOfBirth;
-    private Long dateOfBirthInMillis;
-    @DBRef
+
+    private LocalDate dateOfBirth;
+
+    @OneToOne
     private Address jpAddress;
-    @DBRef
+
+    @OneToOne
     private Address bdAddress;
+
     private boolean isActivated;
     private boolean isInvestmentEnabled;
     private boolean isDepositEnabled;
     private String comment;
     private String imageUrl;
 
-    @CreatedDate
     private LocalDateTime createdAt;
-
-    @LastModifiedDate
     private LocalDateTime updatedAt;
-
 }
+

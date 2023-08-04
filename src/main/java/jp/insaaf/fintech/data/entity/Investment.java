@@ -3,22 +3,22 @@ package jp.insaaf.fintech.data.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-@Document("collection_investment")
+@Entity
+@Table(name = "tbl_investment")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Investment {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public String id;
-    @DBRef
+    @OneToOne
     public User user;
-    @DBRef
+    @OneToOne
     public Project project;
     public double investmentAmount;
     public LocalDate investmentDate;

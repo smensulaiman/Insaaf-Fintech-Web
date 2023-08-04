@@ -4,8 +4,6 @@ import jp.insaaf.fintech.data.entity.User;
 import jp.insaaf.fintech.data.repository.AddressRepository;
 import jp.insaaf.fintech.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,8 +26,8 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        user.setJpAddress(addressRepository.save(user.getJpAddress()));
-        user.setBdAddress(addressRepository.save(user.getBdAddress()));
+//        user.setJpAddress(addressRepository.save(user.getJpAddress()));
+//        user.setBdAddress(addressRepository.save(user.getBdAddress()));
         return userRepository.save(user);
     }
 
