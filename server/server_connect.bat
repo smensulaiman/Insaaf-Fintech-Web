@@ -1,0 +1,1 @@
+ssh -i "insaaf_key.pem" admin@ec2-3-87-186-40.compute-1.amazonaws.com

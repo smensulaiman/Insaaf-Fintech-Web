@@ -35,7 +35,7 @@ public class ProjectRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Project> updateProject(@PathVariable("id") String id, @RequestBody Project project) {
+    public ResponseEntity<Project> updateProject(@PathVariable("id") Long id, @RequestBody Project project) {
         project.setId(id);
         Project updatedProject = projectService.updateProject(project);
         return ResponseEntity.ok(updatedProject);

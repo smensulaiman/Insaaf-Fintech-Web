@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_project")
@@ -15,10 +16,16 @@ import java.time.LocalDate;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String projectName;
     private String description;
     private String image;
     private LocalDate startDate;
+    private LocalDate endDate;
     private String status;
+    @OneToMany
+    @JoinColumn(name = "id")
+    private List<User> members;
+    private double profit;
+    private double profitPercentage;
 }
